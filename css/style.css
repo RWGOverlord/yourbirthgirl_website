@@ -1,0 +1,452 @@
+/* ==========================================================================
+   Your Birth Girl — stylesheet
+   Implements BRAND.md revision 1. Mobile first.
+   Do not add colors, fonts, gradients, or shadows that are not in BRAND.md.
+   ========================================================================== */
+
+/* ----- Fonts (self-hosted, SIL OFL) ----- */
+@font-face {
+  font-family: 'Bagel Fat One';
+  src: url('../assets/fonts/bagel-fat-one-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/poppins-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/poppins-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ----- Tokens ----- */
+:root {
+  --plum:  #5C2D3E;
+  --rose:  #A8687C;
+  --rust:  #C0562C;
+  --drust: #B44E26;
+  --gold:  #E8B44A;
+  --cream: #FDF6EC;
+  --wash:  #FCEEDA;
+  --ink:   #3A2226;
+  --line:  #EFDCC2;
+
+  --display: 'Bagel Fat One', Georgia, serif;
+  --body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --radius-card: 16px;
+  --radius-pill: 40px;
+  --shell: 1100px;
+  --gutter: 20px;
+  --section-y: 56px;
+}
+
+/* ----- Reset ----- */
+*, *::before, *::after { box-sizing: border-box; }
+body, h1, h2, h3, h4, p, ul, ol, li, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; height: auto; }
+a { color: inherit; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+body {
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ----- Layout ----- */
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section-y); }
+.section--cream { background: var(--cream); }
+.section--wash  { background: var(--wash); }
+.section--plum  { background: var(--plum); color: var(--cream); }
+
+/* Skip link — keyboard users land past the nav */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--plum);
+  color: var(--cream);
+  padding: 12px 20px;
+  border-radius: 0 0 var(--radius-card) 0;
+  font-weight: 500;
+  z-index: 100;
+}
+.skip:focus { left: 0; }
+
+/* ----- Type scale (mobile values; desktop in media query) ----- */
+.wordmark {
+  font-family: var(--display);
+  font-size: 20px;
+  line-height: 1.1;
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.hero__standout {
+  font-family: var(--display);
+  font-size: 30px;
+  line-height: 1.15;
+  color: var(--plum);
+  font-weight: 400;
+}
+/* The turn word — final word of the hero headline only, once per page */
+.turn { color: var(--rust); }
+
+.hero__lead {
+  font-size: 22px;
+  line-height: 1.35;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.section-header {
+  font-family: var(--display);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--rust);
+  font-weight: 400;
+}
+/* On plum backgrounds rust would fail contrast — use gold, which is 5.8 on plum */
+.section--plum .section-header { color: var(--gold); }
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--drust);
+}
+.section--plum .eyebrow { color: var(--gold); }
+
+.body-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.section--plum .body-text { color: var(--cream); }
+.body-text + .body-text { margin-top: 16px; }
+
+/* Inline links — drust passes AA at body size on cream and wash */
+.body-text a, .link {
+  color: var(--drust);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.section--plum .body-text a,
+.section--plum .link { color: var(--gold); }
+
+/* ----- Buttons ----- */
+.btn {
+  display: inline-block;
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+.btn--primary { background: var(--rust); color: var(--cream); }
+.btn--primary:hover { background: var(--drust); }
+
+.btn--secondary { background: transparent; color: var(--plum); border-color: var(--plum); }
+.btn--secondary:hover { background: var(--plum); color: var(--cream); }
+
+/* The only gold button on the site */
+.btn--nav { background: var(--gold); color: var(--plum); padding: 10px 20px; font-size: 14px; }
+.btn--nav:hover { background: var(--cream); }
+
+/* On plum, the secondary button needs a light border to be visible */
+.section--plum .btn--secondary { color: var(--cream); border-color: var(--cream); }
+.section--plum .btn--secondary:hover { background: var(--cream); color: var(--plum); }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ----- Focus ----- */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+.section--plum a:focus-visible, .nav a:focus-visible {
+  outline-color: var(--gold);
+}
+
+/* ----- Nav ----- */
+.nav { background: var(--plum); }
+.nav__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding-block: 14px;
+}
+.nav__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  margin-left: auto;
+}
+/* Below ~600px the wordmark and three nav items cannot share a row without
+   forcing the page wider than the viewport. Drop the links to their own line. */
+@media (max-width: 599px) {
+  .nav__inner { justify-content: space-between; }
+  .nav__links { width: 100%; margin-left: 0; justify-content: flex-start; }
+}
+.nav__link {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--cream);
+  text-decoration: none;
+}
+.nav__link:hover { color: var(--gold); }
+.nav__link[aria-current="page"] {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ----- Hero ----- */
+.hero { background: var(--wash); padding-block: var(--section-y); }
+.hero__grid { display: grid; gap: 32px; }
+.hero__copy > * + * { margin-top: 18px; }
+
+/* ----- Photo frame ----- */
+.photo-frame {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--rose);
+}
+.photo-frame img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.photo-frame__caption {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  background: rgba(92, 45, 62, .74); /* plum at 74% */
+  color: var(--cream);
+  font-size: 12px;
+  letter-spacing: .08em;
+  padding: 10px 14px;
+}
+/* Placeholder until real photography lands */
+.photo-frame--placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  border: 1.5px solid var(--gold);
+}
+.photo-frame--placeholder span {
+  color: var(--cream);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* ----- Pills ----- */
+.pill-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill {
+  display: inline-block;
+  background: var(--cream);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: var(--ink);
+  font-size: 14px;
+  padding: 9px 18px;
+}
+/* Exactly one of each per list. Never more. */
+.pill--rust { background: var(--rust); border-color: var(--rust); color: var(--cream); }
+.pill--gold { background: var(--gold); border-color: var(--gold); color: var(--plum); }
+
+/* ----- Cards ----- */
+.card-grid { display: grid; gap: 18px; }
+.card {
+  background: var(--cream);
+  border: 1.5px solid var(--gold);
+  border-radius: var(--radius-card);
+  padding: 26px;
+}
+.card__title {
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--plum);
+  line-height: 1.3;
+}
+.card__title + * { margin-top: 10px; }
+
+/* ----- Stat blocks ----- */
+.stat-grid { display: grid; gap: 14px; }
+.stat {
+  background: var(--plum);
+  border-radius: var(--radius-card);
+  padding: 22px;
+}
+.stat__number {
+  font-family: var(--display);
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--gold);
+  font-weight: 400;
+}
+.stat__caption {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--cream);
+}
+.stat-source { margin-top: 18px; font-size: 13px; color: var(--ink); }
+.stat-source a { color: var(--drust); }
+
+/* ----- Included checklist (services) ----- */
+.included { display: grid; gap: 10px; }
+.included li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.included li::before {
+  content: "✔";
+  color: var(--drust);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ----- Price ----- */
+.price {
+  font-family: var(--display);
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--plum);
+  font-weight: 400;
+}
+/* Marks copy that is waiting on a real value from Megan */
+.pending {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--drust);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* ----- Resource groups ----- */
+.res-group + .res-group { margin-top: 34px; }
+.res-group__title {
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--plum);
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--line);
+}
+.res-list { margin-top: 14px; display: grid; gap: 14px; }
+.res-item__name { font-size: 15px; line-height: 1.5; color: var(--ink); }
+.res-item__link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--drust);
+  text-underline-offset: 2px;
+}
+
+/* ----- Footer ----- */
+.footer { background: var(--ink); color: var(--cream); padding-block: 40px; }
+.footer__grid { display: grid; gap: 26px; }
+.footer__wordmark { font-family: var(--display); font-size: 20px; color: var(--cream); }
+.footer__label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.footer__grid li + li { margin-top: 4px; }
+.footer a { color: var(--cream); text-decoration: none; }
+.footer a:hover { text-decoration: underline; text-underline-offset: 2px; }
+.footer__former { font-size: 13px; color: var(--line); margin-top: 6px; }
+.footer__bottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1.5px solid rgba(253, 246, 236, .18);
+  font-size: 13px;
+  color: var(--line);
+}
+
+/* ----- Utilities ----- */
+.stack > * + * { margin-top: 18px; }
+.stack-lg > * + * { margin-top: 30px; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ==========================================================================
+   Desktop
+   ========================================================================== */
+@media (min-width: 760px) {
+  :root { --gutter: 32px; --section-y: 84px; }
+
+  body { line-height: 1.65; }
+
+  .wordmark { font-size: 24px; }
+  .hero__standout { font-size: 47px; }
+  .hero__lead { font-size: 31px; }
+  .section-header { font-size: 27px; }
+  .eyebrow { font-size: 11.5px; }
+  .body-text { line-height: 1.65; }
+  .btn { font-size: 14.5px; }
+  .card__title { font-size: 17px; }
+  .stat__number { font-size: 34px; }
+  .price { font-size: 34px; }
+  .footer__wordmark { font-size: 24px; }
+
+  .hero__grid { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 48px; }
+  .stat-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .card-grid--single { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+  .res-list--two { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .included { grid-template-columns: repeat(2, 1fr); gap: 10px 26px; }
+}
