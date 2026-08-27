@@ -12,9 +12,9 @@ Pages on the old site: `/home` `/services` `/resources` `/contact` `/about`
 
 - Doula: **Megan Quintanilla**, Birth Doula
 - Location: Chattanooga, TN
-- Email: LaQuintanaDoulaCare@gmail.com  ← *see open item: does this change?*
+- Email: megan@yourbirthgirl.com  (was LaQuintanaDoulaCare@gmail.com)
 - Phone: 707-267-4017
-- Instagram: https://www.instagram.com/laquintanadoulacare/  ← *see open item*
+- Instagram: https://www.instagram.com/yourbirthgirl/  (was @laquintanadoulacare)
 - Consultation form (Airtable, keep exactly):
   https://airtable.com/app5qlWlqs0Z5c1ld/shrBLWKpGCxXNsT3f
 
@@ -84,7 +84,7 @@ https://evidencebasedbirth.com/the-evidence-for-doulas/
 - ✔ Prayer + faith-centered encouragement
 - ✔ Service area: within 1 hour of Chattanooga, TN
 
-**$1200** ← *see open item: still current?*
+**$1200**  (confirmed current)
 
 Button: CONTACT ME → /contact
 
@@ -111,7 +111,7 @@ Button: CONTACT ME → /contact
 **Placenta Encapsulation**
 - Jada Holder, Certified Placenta Specialist — mailto link, prefilled subject
   "Placenta Encapsulation" and a body that reads *"Megan with La Quintana Doula
-  Care shared your information with me!"* ← *see open item: rebrand this string?*
+  Care shared your information with me!"* — rebranded to "Your Birth Girl".
   wholesomehealingsdoula@gmail.com
 
 **Pelvic Floor Therapy**

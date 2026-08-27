@@ -41,14 +41,12 @@ rewrite. The About page was removed on purpose.
 
 ## Outstanding
 
-- [ ] **Base package price** — placeholder `$0` on services.html, marked with
-      a "Price pending" badge. Search for `class="pending"`.
 - [ ] **Photography** — hero portrait is a placeholder block in index.html.
       Drop real images into `assets/img/` and write real alt text.
-- [ ] **Email and Instagram** — still the `LaQuintanaDoulaCare` handles, which
-      are live and working. Confirm whether they rebrand.
 - [ ] **DNS** — point yourbirthgirl.com at GitHub Pages and enable
-      "Enforce HTTPS" in repository settings.
+      "Enforce HTTPS" in repository settings. See DNS.md.
+- [ ] **Mailbox** — megan@yourbirthgirl.com must actually exist before the
+      site goes live, or every contact link bounces.
 
 ## Deploying
 

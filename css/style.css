@@ -354,21 +354,6 @@ a:focus-visible, button:focus-visible {
   color: var(--plum);
   font-weight: 400;
 }
-/* Marks copy that is waiting on a real value from Megan */
-.pending {
-  display: inline-block;
-  font-family: var(--body);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--cream);
-  background: var(--drust);
-  border-radius: var(--radius-pill);
-  padding: 4px 12px;
-  vertical-align: middle;
-  margin-left: 8px;
-}
 
 /* ----- Resource groups ----- */
 .res-group + .res-group { margin-top: 34px; }
