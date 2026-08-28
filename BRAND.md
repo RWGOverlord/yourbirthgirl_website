@@ -149,3 +149,35 @@ Don't:
   against this warm palette. Confirm treatment.
 - **Hosting.** GitHub Pages. Custom domain needs a CNAME file in the repo and
   DNS pointed at GitHub. HTTPS enforced.
+
+---
+
+## 7. Rebrand notice (revision 3) — temporary
+
+A slim gold bar sits **above** the plum nav on all four pages:
+
+> **La Quintana Doula Care is now Your Birth Girl** — same Megan, same care.
+
+This is a deliberate exception to two rules above, recorded here so it is not
+mistaken for drift:
+
+- **§4 page order.** The order is otherwise fixed and starts at Nav. This bar
+  precedes it.
+- **§5 "keep her existing copy."** This line is new copy, written for the
+  rebrand and approved by Megan. It is the only sentence on the site that is
+  not hers.
+
+Rules for it:
+
+- Gold fill, plum text, Poppins 400 with the first clause at 500, 13px,
+  centered. Plum on gold is 5.8:1, so 13px clears AA.
+- The old name comes first. It is the word a confused visitor is scanning for.
+- No dismiss control. It is a slim bar with a short life; a dismiss button
+  would mean JavaScript and localStorage for something scheduled for deletion.
+- It must be live **before** the laquintanadoulacare.com redirect is switched
+  on, or the first wave of redirected traffic lands unexplained.
+
+**Remove it** once the redirect has run about twelve months: delete the
+`.rebrand` block in `css/style.css`, the markup on all four pages, and this
+section. The `formerly La Quintana Doula Care` line in the footer is the
+permanent, quiet version and stays.

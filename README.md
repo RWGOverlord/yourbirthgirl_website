@@ -51,6 +51,10 @@ rewrite. The About page was removed on purpose.
       until it is deployed and `ENDPOINT` in `js/form.js` matches the
       deployed URL. Requires verifying yourbirthgirl.com in Resend. Full
       steps in worker/README.md.
+- [ ] **Remove the rebrand notice** — the gold bar above the nav on all four
+      pages is temporary. Delete it, its `.rebrand` CSS, and BRAND.md §7 once
+      the laquintanadoulacare.com redirect has run ~12 months. The footer
+      "formerly" line stays.
 - [ ] **www subdomain** — add the `www` CNAME so www.yourbirthgirl.com
       resolves. See DNS.md. The apex is already live over HTTPS.
 

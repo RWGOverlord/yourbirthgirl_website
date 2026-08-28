@@ -206,6 +206,24 @@ a:focus-visible, button:focus-visible {
   outline-color: var(--gold);
 }
 
+/* ----- Rebrand notice -----
+   TEMPORARY. Bridges visitors arriving from laquintanadoulacare.com through
+   the 301 redirect. Delete this block plus the markup on all four pages once
+   the redirect has run ~12 months. See BRAND.md §7.
+   Plum on gold measures 5.8:1, so 13px clears AA. */
+.rebrand {
+  background: var(--gold);
+  padding-block: 9px;
+}
+.rebrand__text {
+  color: var(--plum);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+}
+.rebrand__text strong { font-weight: 500; }
+
 /* ----- Nav ----- */
 .nav { background: var(--plum); }
 .nav__inner {
