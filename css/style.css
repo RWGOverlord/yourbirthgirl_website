@@ -247,7 +247,10 @@ a:focus-visible, button:focus-visible {
   overflow: hidden;
   background: var(--rose);
 }
-.photo-frame img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.photo-frame { --ratio: 4 / 5; }
+.photo-frame img { width: 100%; aspect-ratio: var(--ratio); object-fit: cover; }
+.photo-frame--wide { --ratio: 3 / 2; }   /* landscape source */
+.photo-frame--tall { --ratio: 2 / 3; }   /* portrait source */
 .photo-frame__caption {
   position: absolute;
   inset-inline: 0;
@@ -262,7 +265,7 @@ a:focus-visible, button:focus-visible {
 .photo-frame--placeholder {
   display: grid;
   place-items: center;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: var(--ratio);
   border: 1.5px solid var(--gold);
 }
 .photo-frame--placeholder span {
@@ -273,6 +276,9 @@ a:focus-visible, button:focus-visible {
   text-align: center;
   padding: 0 20px;
 }
+
+/* Text beside a photo. Stacks on mobile, text first. */
+.split { display: grid; gap: 28px; }
 
 /* ----- Pills ----- */
 .pill-list { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -428,6 +434,7 @@ a:focus-visible, button:focus-visible {
   .footer__wordmark { font-size: 24px; }
 
   .hero__grid { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 48px; }
+  .split { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 44px; }
   .stat-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .card-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .card-grid--single { grid-template-columns: 1fr; }
