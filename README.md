@@ -26,9 +26,14 @@ js/form.js        Consultation form validation + submit
 worker/           Cloudflare Worker that relays the form to Resend
 assets/fonts/     Self-hosted woff2 (SIL OFL)
 assets/img/       Photography (pending)
+about.html        Redirect stub — old Squarespace /about, now gone
+home.html         Redirect stub — old Squarespace /home
+sitemap.xml       Submitted to Search Console; excludes redirect stubs
+robots.txt        Points crawlers at the sitemap
 CNAME             GitHub Pages custom domain
 BRAND.md          Design source of truth — read before changing anything visual
 CONTENT.md        Copy scraped from the old site, with provenance
+REDIRECT.md       Pointing laquintanadoulacare.com at this site
 ```
 
 ## Rules
