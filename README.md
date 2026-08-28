@@ -43,8 +43,10 @@ rewrite. The About page was removed on purpose.
 
 ## Outstanding
 
-- [ ] **Photography** — hero portrait is a placeholder block in index.html.
-      Drop real images into `assets/img/` and write real alt text.
+- [ ] **Hero portrait of Megan** — index.html still shows a placeholder
+      block. This is the highest-value image on the site.
+- [ ] **`labor-support.jpg` is unused.** Kept in assets/img/ for a future
+      second home-page photo, or as an alternative on services.
 - [ ] **Deploy the form Worker** — the consultation form will not send
       until it is deployed and `ENDPOINT` in `js/form.js` matches the
       deployed URL. Requires verifying yourbirthgirl.com in Resend. Full

@@ -435,6 +435,13 @@ a:focus-visible, button:focus-visible {
 
   .hero__grid { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 48px; }
   .split { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 44px; }
+  /* the package card is the tall element here, so the photo tracks its top
+     rather than floating centred against it */
+  .split--card { grid-template-columns: 1.35fr .65fr; align-items: stretch; }
+  .split--card .photo-frame { height: 100%; }
+  .split--card .photo-frame img { height: 100%; aspect-ratio: auto; }
+  /* narrower column: the included list reads better as one column */
+  .split--card .included { grid-template-columns: 1fr; }
   .stat-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .card-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
   .card-grid--single { grid-template-columns: 1fr; }
