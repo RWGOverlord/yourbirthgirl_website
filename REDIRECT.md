@@ -1,12 +1,29 @@
 # Redirecting laquintanadoulacare.com → yourbirthgirl.com
 
 The old Squarespace site ranks well for "chattanooga doula." A 301 redirect is
-what carries that ranking to the new domain. Do this once the new site is live
-and the rebrand notice is deployed (it already is — see BRAND.md §7).
+what carries that ranking to the new domain.
 
-**Use Domain Forwarding, not URL Mappings.** Squarespace's URL Mappings tool
-cannot redirect `/`, which is the most valuable URL in the move. Domain
-forwarding handles the root *and* preserves paths.
+**Method: Cloudflare nameservers + a Redirect Rule.** Free, real edge 301s on
+every host and path. The domain stays registered at Squarespace; only its
+nameservers change.
+
+## Why not Squarespace's own domain forwarding
+
+It was tried first and half-works, which is worse than not working:
+
+- The apex forwards correctly (301, path preserved).
+- **`www` does not.** The Squarespace site is still connected to the domain
+  with `www` as its primary host, and a connected site's primary domain wins
+  over the forwarding rule at Squarespace's edge.
+- The fix would be detaching the domain from the site, but a built-in
+  `.squarespace.com` domain cannot be set as primary, and the custom domain
+  offers no disconnect path in the current UI.
+
+`www` is the half that matters most: Google has the `www` URLs indexed, so
+that is where the search traffic and the ranking actually live.
+
+Cloudflare sidesteps all of it. Once nameservers move, Squarespace DNS stops
+being authoritative and the site connection can no longer hold `www`.
 
 ---
 
@@ -22,109 +39,135 @@ for p in / /services /resources /contact /about /home; do
 done
 ```
 
-All six should return `200`. `/about` and `/home` are served by the stub files
-in this repo, which meta-refresh to the homepage — the old site had those
-pages, this one does not.
+All six should return `200`. `/about` and `/home` are served by stub files in
+this repo that meta-refresh to the homepage — the old site had those pages,
+this one does not.
 
-If any return `404`, stop and fix that before forwarding, or you will redirect
-live traffic into a dead end.
+DNS audit done 2026-08-28: no MX, no TXT, no extra subdomains. Nothing needs
+preserving through the nameserver change.
 
 ---
 
-## 1. Set up forwarding
+## 1. Add the domain to Cloudflare
 
-Squarespace account → **Domains** → click **laquintanadoulacare.com** →
-**Domain Forwarding** → **Add Forwarding Rule**.
+Sign up at cloudflare.com, **Add a site** → `laquintanadoulacare.com` → **Free**
+plan. It scans the existing DNS.
 
-**Subdomain:** type `@`. The field looks like it wants a word, and shows
-`.laquintanadoulacare.com` as a fixed suffix, but `@` is how the form means
-the root domain — it says so in the help text above the field. Leaving it
-blank fails with "Not a valid subdomain."
+Delete everything it imported. The domain serves no site any more — it only
+redirects.
 
-Then click **ADD SUBDOMAIN** and add `www` as a second entry. The old site
-has a `www` record; without this, anyone who typed or bookmarked
-`www.laquintanadoulacare.com` misses the redirect entirely.
+## 2. Add two placeholder records
 
-**Enter website URL:** `https://yourbirthgirl.com`
+Redirect Rules only run on **proxied** traffic, so the domain needs proxied
+records even though nothing is behind them. In **DNS → Records**, add:
 
-**Then expand "Advanced settings"** — it is collapsed by default, and both of
-the settings that matter are hidden inside it:
+| Type | Name | IPv4 address | Proxy status |
+|---|---|---|---|
+| A | `@` | `192.0.2.1` | **Proxied** (orange cloud) |
+| A | `www` | `192.0.2.1` | **Proxied** (orange cloud) |
 
-| Setting | Value |
-|---|---|
-| Redirect type | **Permanent (301)** |
-| Paths | **Maintain paths** |
+`192.0.2.1` is a reserved documentation address that goes nowhere on purpose.
+No request ever reaches it — the redirect fires at Cloudflare's edge first.
 
-Both are non-default and both matter:
+The orange cloud is the part people miss. Grey cloud (DNS-only) means the
+Redirect Rule never runs.
 
-- **302 does not pass ranking.** It tells Google the move is temporary and the
-  old URL should stay indexed. It must be 301.
-- **"Remove paths"** dumps every old URL onto the new homepage. Google reads
-  that as a soft 404 and discards most of the equity. "Maintain paths" sends
-  `/services` → `yourbirthgirl.com/services`, which is why step 0 matters.
+## 3. Point the nameservers at Cloudflare
 
-Squarespace warns that this deletes the domain's default records. That is
-expected — it is the old site going dark at that address, which is the point.
+Cloudflare shows you two assigned nameservers. Copy them.
 
-Save. DNS propagation takes up to 48 hours.
+Squarespace → **Domains & Email** → **Domains** → `laquintanadoulacare.com` →
+nameserver settings → switch from Squarespace defaults to **custom
+nameservers** → paste both → save.
 
-## 2. Verify
+Do **not** cancel or transfer the domain. It stays registered at Squarespace,
+auto-renewing. Only the nameservers change.
+
+Cloudflare emails you when the zone goes **Active** — usually minutes, up to
+24 hours.
+
+## 4. Wait for Universal SSL
+
+**SSL/TLS → Edge Certificates.** Universal SSL must read **Active** before
+HTTPS works. This can lag zone activation by up to 24 hours.
+
+Skipping this check is the likeliest way to think the redirect is broken when
+it is only half-provisioned. Both matter — Google has the `https://` URLs.
+
+## 5. Create the Redirect Rule
+
+**Rules → Redirect Rules → Create rule.**
+
+- **Name:** `old domain to yourbirthgirl`
+- **If:** All incoming requests
+- **Then:** Type **Dynamic**
+
+  ```
+  concat("https://yourbirthgirl.com", http.request.uri.path)
+  ```
+
+- **Status code:** `301`
+- **Preserve query string:** on
+
+Dynamic, not Static. A static redirect sends every URL to one destination —
+Google reads that as a soft 404 and discards most of the ranking. The `concat`
+expression carries the path across, so `/services` lands on `/services`.
+
+## 6. Verify
 
 ```sh
 for host in laquintanadoulacare.com www.laquintanadoulacare.com; do
   for p in / /services /resources /contact /about; do
-    printf "%-32s " "$host$p"
+    printf "%-40s " "$host$p"
     curl -s -o /dev/null -w "%{http_code} → %{redirect_url}\n" "https://$host$p"
   done
 done
 ```
 
-You want `301` and a `redirect_url` on yourbirthgirl.com with the path intact.
-A `302` means the redirect type did not save. Everything landing on the bare
-homepage means "maintain paths" did not save.
+All ten lines should read `301 → https://yourbirthgirl.com/<same path>`.
 
-## 3. Search Console
+A `200` means the rule is not firing — check the orange cloud on step 2.
+Everything landing on the bare homepage means the redirect is Static instead
+of Dynamic.
+
+Browsers cache 301s aggressively. Test in a private window, and trust `curl`
+over what a browser shows you.
+
+## 7. Search Console
 
 Verify **both** properties, then run **Settings → Change of address** on the
-old one. This is the explicit "this site moved" signal and is separate from
-the redirect itself.
+old one. Google has the `www` URLs indexed, so make sure the property you run
+it on is the one that matches what is actually ranking.
 
 Submit the new sitemap while you are there.
 
-## 4. Then, and only then, cancel the website plan
-
-Squarespace subscriptions are independent. Cancelling the **website** plan does
-not cancel the **domain**, and forwarding keeps working as long as the domain
-registration stays active.
-
-So: cancel the site plan, keep renewing the domain (~$20/yr). Do not let the
-domain lapse — the redirect dies with it and the ranking goes with it.
-
-Keep it renewing indefinitely. 301s only pass equity while they are alive.
-
 ---
 
-## Notes
+## Afterward
 
-- Forwarding **removes Squarespace's DNS defaults** from the domain, so the old
-  site goes dark at that address. That also means URL Mappings on the old site
-  become unreachable. It is forwarding *or* mappings, never both — forwarding
-  covers everything, so this is fine.
-- Query parameters are not carried through. Irrelevant for a five-page site.
-- The redirect is only part of the move. The Google Business Profile is likely
-  what actually holds the "chattanooga doula" position — **rename the existing
-  listing, never delete and recreate it.** A new listing resets the review
+- **Keep the domain renewing.** ~$20/yr, next on Mar 2 2027. The registration
+  is now the redirect. If it lapses, the 301 dies and the ranking goes with
+  it. Auto-renew is on — leave it on, and check the card before each renewal.
+- **The Squarespace site keeps running** at `corn-megalodon-dx7s.squarespace.com`
+  for the rest of the paid term. Nothing was cancelled. Its domain forwarding
+  rule is now inert and can be ignored or deleted.
+- Optionally set that site to Private under **Site Availability** — it is a
+  duplicate of content now live on yourbirthgirl.com.
+- **Google Business Profile** is separate from all of this and unaffected.
+  Update its Website field to yourbirthgirl.com. **Rename the existing
+  listing — never delete and recreate it.** A new listing resets the review
   count and local history, which is the real ranking asset and is not
   recoverable. Same for the Facebook page.
 - Update the citations themselves where you can: DoulaMatch, DONA, Yelp, any
   Chattanooga birth-center or midwife referral pages. Redirects preserve those
   backlinks, but updating the source is better.
+- **Title tag.** The old page was `La Quintana Doula Care | Chattanooga Doula` —
+  an exact match for the target query. The new one is `Your Birth Girl | Birth
+  Doula in Chattanooga, TN`, a weaker match. Worth revisiting once the move
+  settles; do not change it mid-migration.
 
 ## Sources
 
 - [URL mappings](https://support.squarespace.com/hc/en-us/articles/205815308-URL-mappings)
-  — the `/` limitation
 - [Forwarding a domain](https://support.squarespace.com/hc/en-us/articles/214767107-Forwarding-a-domain)
-  — 301 and path options
-- [What to do with your domain if you cancel your website](https://support.squarespace.com/hc/en-us/articles/205845348-What-to-do-with-your-domain-if-you-cancel-your-website)
-  — forwarding survives cancellation
+- [Squarespace domains FAQ](https://support.squarespace.com/hc/en-us/articles/205812208-Squarespace-domains-FAQ)
