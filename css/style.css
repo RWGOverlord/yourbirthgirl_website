@@ -101,12 +101,18 @@ body {
 
 /* ----- Type scale (mobile values; desktop in media query) ----- */
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--display);
   font-size: 20px;
   line-height: 1.1;
   color: var(--cream);
   text-decoration: none;
 }
+/* The mark keeps its own cream field and is masked to a circle, so it reads
+   as a badge on plum. The rust mark alone would be ~2.4:1 against plum. */
+.wordmark__mark { display: block; width: 32px; height: 32px; flex: none; }
 
 .hero__standout {
   font-family: var(--display);
@@ -422,6 +428,7 @@ a:focus-visible, button:focus-visible {
   body { line-height: 1.65; }
 
   .wordmark { font-size: 24px; }
+  .wordmark__mark { width: 38px; height: 38px; }
   .hero__standout { font-size: 47px; }
   .hero__lead { font-size: 31px; }
   .section-header { font-size: 27px; }
