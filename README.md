@@ -22,6 +22,8 @@ services.html     Birth Doula Support package and add-on
 resources.html    Local + recommended resources
 contact.html      Airtable consultation form and quick-question email
 css/style.css     Entire design system (BRAND.md tokens)
+js/form.js        Consultation form validation + submit
+worker/           Cloudflare Worker that relays the form to Resend
 assets/fonts/     Self-hosted woff2 (SIL OFL)
 assets/img/       Photography (pending)
 CNAME             GitHub Pages custom domain
@@ -43,11 +45,28 @@ rewrite. The About page was removed on purpose.
 
 - [ ] **Photography** — hero portrait is a placeholder block in index.html.
       Drop real images into `assets/img/` and write real alt text.
+- [ ] **Deploy the form Worker** — the consultation form will not send
+      until it is deployed and `ENDPOINT` in `js/form.js` matches the
+      deployed URL. Requires verifying yourbirthgirl.com in Resend. Full
+      steps in worker/README.md.
 - [ ] **www subdomain** — add the `www` CNAME so www.yourbirthgirl.com
       resolves. See DNS.md. The apex is already live over HTTPS.
 
 Contact email is megan.yourbirthgirl@gmail.com — a Gmail account, so the
 domain needs no MX records.
+
+## Consultation form
+
+contact.html hosts the form directly; the old Airtable embed is gone. It
+posts to a Cloudflare Worker which relays to Megan via Resend. The Resend
+key lives only as a Worker secret — never in this repo, never in the page.
+
+```
+browser  ──POST──▶  Worker (RESEND_API_KEY)  ──▶  Resend  ──▶  Megan's Gmail
+```
+
+The Worker re-validates every field; client-side checks are convenience
+only. `cd worker && node test.mjs` runs the suite.
 
 ## Deploying
 

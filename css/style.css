@@ -435,3 +435,150 @@ a:focus-visible, button:focus-visible {
   .res-list--two { grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .included { grid-template-columns: repeat(2, 1fr); gap: 10px 26px; }
 }
+
+/* ==========================================================================
+   Consultation form
+   Replaces the Airtable embed. Posts to the Cloudflare Worker, which relays
+   to Resend. Fields mirror the original Airtable form.
+   ========================================================================== */
+
+.form { max-width: 640px; }
+.form__field + .form__field { margin-top: 26px; }
+
+/* legend inherits a default inline padding in every browser; zero it so the
+   support-type question lines up with the other labels */
+.form__label, legend.form__label { padding: 0; }
+.form__label {
+  display: block;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--plum);
+}
+.form__req { color: var(--drust); margin-left: 2px; }
+.form__hint {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.form__input,
+.form__select,
+.form__textarea {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 12px 14px;
+}
+.form__textarea { min-height: 110px; resize: vertical; }
+
+/* Native select arrow varies by platform; keep the control legible without
+   adding a background image, which the brand spec does not allow. */
+.form__select { appearance: none; padding-right: 40px; }
+.form__select-wrap { position: relative; }
+.form__select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  bottom: 20px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--plum);
+  border-bottom: 2px solid var(--plum);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.form__input:focus-visible,
+.form__select:focus-visible,
+.form__textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+  border-color: var(--plum);
+}
+
+/* Checkbox groups */
+.form__checks { margin-top: 12px; display: grid; gap: 10px; }
+.form__check {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  cursor: pointer;
+}
+.form__check input {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--rust);
+  cursor: pointer;
+}
+.form__check input:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* Honeypot — hidden from people, visible to naive bots */
+.form__pot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Validation + status messaging */
+.form__error {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--drust);
+}
+.form__field--invalid .form__input,
+.form__field--invalid .form__select,
+.form__field--invalid .form__textarea { border-color: var(--drust); }
+
+.form__status {
+  margin-top: 22px;
+  border-radius: var(--radius-card);
+  padding: 16px 18px;
+  font-size: 15px;
+  line-height: 1.55;
+  border: 1.5px solid var(--line);
+}
+.form__status[data-state="error"] { border-color: var(--drust); color: var(--ink); }
+.form__status[data-state="sending"] { color: var(--ink); }
+
+/* Success replaces the form outright */
+.form__done {
+  background: var(--plum);
+  border-radius: var(--radius-card);
+  padding: 30px 26px;
+}
+/* focused programmatically so screen readers announce it; it is not a
+   keyboard stop, so the default ring would just be off-brand noise */
+.form__done:focus { outline: none; }
+.form__done h2 {
+  font-family: var(--display);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--gold);
+  font-weight: 400;
+}
+.form__done p { margin-top: 12px; font-size: 15px; line-height: 1.6; color: var(--cream); }
+
+.form__submit { margin-top: 30px; }
+.btn[disabled] { opacity: .6; cursor: not-allowed; }
+
+@media (min-width: 760px) {
+  .form__done h2 { font-size: 27px; }
+}

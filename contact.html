@@ -29,20 +29,129 @@
   <section class="section section--wash">
     <div class="shell stack">
       <h1 class="section-header">Doula Consultation Form</h1>
-      <p class="body-text">I&rsquo;m so excited that you&rsquo;re considering doula support for your birth journey! This form helps me learn a bit about you and your needs so that our consultation is as helpful and personalized as possible. Once you complete the form, you&rsquo;ll be able to schedule a consultation at a time that works best for you. I can&rsquo;t wait to connect, hear your story, and explore how I can support you every step of the way!</p>
-      <div class="btn-row">
-        <a class="btn btn--primary" href="https://airtable.com/app5qlWlqs0Z5c1ld/shrBLWKpGCxXNsT3f" target="_blank" rel="noopener">Fill out form</a>
-      </div>
+      <p class="body-text">I&rsquo;m so excited that you&rsquo;re considering doula support for your birth journey! This form helps me learn a bit about you and your needs so that our consultation is as helpful and personalized as possible. Once you send it, I&rsquo;ll be in touch within 1&ndash;2 business days to find a consultation time that works best for you. I can&rsquo;t wait to connect, hear your story, and explore how I can support you every step of the way!</p>
     </div>
   </section>
 
   <section class="section section--cream">
+    <div class="shell">
+
+      <form class="form" id="consult-form" novalidate>
+
+        <div class="form__field">
+          <label class="form__label" for="f-name">What&rsquo;s your name?<span class="form__req" aria-hidden="true">*</span></label>
+          <input class="form__input" id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="f-email">What&rsquo;s your email?<span class="form__req" aria-hidden="true">*</span></label>
+          <input class="form__input" id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="f-phone">What&rsquo;s your phone number?<span class="form__req" aria-hidden="true">*</span></label>
+          <input class="form__input" id="f-phone" name="phone" type="tel" autocomplete="tel" required>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="f-due">When is your baby due?<span class="form__req" aria-hidden="true">*</span></label>
+          <p class="form__hint" id="f-due-hint">Estimated due date</p>
+          <input class="form__input" id="f-due" name="dueDate" type="date" aria-describedby="f-due-hint" required>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="f-place">Where do you plan to have your baby?<span class="form__req" aria-hidden="true">*</span></label>
+          <div class="form__select-wrap">
+            <select class="form__select" id="f-place" name="birthPlace" required>
+              <option value="">Select an option</option>
+              <option value="home">home</option>
+              <option value="birth center">birth center</option>
+              <option value="hospital">hospital</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="f-location">What&rsquo;s the name &amp; address of your planned birth location?<span class="form__req" aria-hidden="true">*</span></label>
+          <textarea class="form__textarea" id="f-location" name="birthLocation" required></textarea>
+        </div>
+
+        <fieldset class="form__field" style="border:0;padding:0;margin-inline:0">
+          <legend class="form__label">What type of support are you interested in?<span class="form__req" aria-hidden="true">*</span></legend>
+          <p class="form__hint">You may select more than one.</p>
+          <div class="form__checks">
+            <label class="form__check"><input type="checkbox" name="supportType" value="in-person doula care"><span>in-person doula care</span></label>
+            <label class="form__check"><input type="checkbox" name="supportType" value="virtual doula care"><span>virtual doula care</span></label>
+            <label class="form__check"><input type="checkbox" name="supportType" value="doula Q&amp;A coaching sessions"><span>doula Q&amp;A coaching sessions</span></label>
+          </div>
+        </fieldset>
+
+        <div class="form__field">
+          <label class="form__label" for="f-consult">Do you prefer an in-person or virtual consultation?<span class="form__req" aria-hidden="true">*</span></label>
+          <div class="form__select-wrap">
+            <select class="form__select" id="f-consult" name="consultPref" required>
+              <option value="">Select an option</option>
+              <option value="In-person (Drip Coffee in Hixson)">In-person (Drip Coffee in Hixson)</option>
+              <option value="Video call (Google Meet)">Video call (Google Meet)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="f-notes">Anything specific you&rsquo;d like to discuss during the consultation?</label>
+          <textarea class="form__textarea" id="f-notes" name="notes"></textarea>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="f-heard">How did you hear about my services?<span class="form__req" aria-hidden="true">*</span></label>
+          <div class="form__select-wrap">
+            <select class="form__select" id="f-heard" name="heardFrom" required>
+              <option value="">Select an option</option>
+              <option value="from a web search">from a web search</option>
+              <option value="from social media">from social media</option>
+              <option value="from my midwife">from my midwife</option>
+              <option value="referral from another doula">referral from another doula</option>
+              <option value="from a previous client">from a previous client</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form__field">
+          <div class="form__checks">
+            <label class="form__check">
+              <input type="checkbox" id="f-consent" name="consent" value="yes" required>
+              <span>Check the box if you agree that nothing we talk about is deemed medical advice at any point.<span class="form__req" aria-hidden="true">*</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form__pot" aria-hidden="true">
+          <label for="f-website">Leave this field empty</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form__submit">
+          <button class="btn btn--primary" type="submit" id="f-submit">Send my details</button>
+        </div>
+
+        <p class="form__status" id="f-status" role="status" aria-live="polite" hidden></p>
+      </form>
+
+      <div class="form__done" id="f-done" hidden tabindex="-1">
+        <h2>Thank you!</h2>
+        <p>Your details are on their way to Megan. She&rsquo;ll be in touch within 1&ndash;2 business days to find a consultation time that works for you.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--wash">
     <div class="shell stack">
       <h2 class="section-header">Have a quick question?</h2>
       <p class="body-text">I&rsquo;m happy to help! Feel free to
         <a href="mailto:megan.yourbirthgirl@gmail.com">reach out here</a>
         for simple questions or anything you&rsquo;re curious about&mdash;I aim to respond to all inquiries within 1&ndash;2 business days. Your questions are important to me!</p>
-      <p class="body-text">If you&rsquo;re ready to connect more deeply and chat about how I can support you, you can fill out my doula consultation form above. I&rsquo;d love to hear from you!</p>
+      <p class="body-text">If you&rsquo;re ready to connect more deeply and chat about how I can support you, fill out the consultation form above. I&rsquo;d love to hear from you!</p>
       <div class="btn-row">
         <a class="btn btn--secondary" href="mailto:megan.yourbirthgirl@gmail.com">Email Megan</a>
       </div>
@@ -77,5 +186,6 @@
   </div>
 </footer>
 
+<script src="js/form.js" defer></script>
 </body>
 </html>

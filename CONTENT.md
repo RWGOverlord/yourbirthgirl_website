@@ -15,8 +15,11 @@ Pages on the old site: `/home` `/services` `/resources` `/contact` `/about`
 - Email: megan.yourbirthgirl@gmail.com  (was LaQuintanaDoulaCare@gmail.com)
 - Phone: 707-267-4017
 - Instagram: https://www.instagram.com/yourbirthgirl/  (was @laquintanadoulacare)
-- Consultation form (Airtable, keep exactly):
-  https://airtable.com/app5qlWlqs0Z5c1ld/shrBLWKpGCxXNsT3f
+- Consultation form: **replaced.** The Airtable form
+  (https://airtable.com/app5qlWlqs0Z5c1ld/shrBLWKpGCxXNsT3f) is no longer
+  linked. contact.html now hosts a native form that emails Megan via a
+  Cloudflare Worker + Resend. Field list and options were copied from the
+  Airtable original.
 
 ---
 
@@ -171,8 +174,13 @@ website → https://www.yourwholebaby.org/
 > you. I can't wait to connect, hear your story, and explore how I can support
 > you every step of the way!
 
-Button: fill out form →
-https://airtable.com/app5qlWlqs0Z5c1ld/shrBLWKpGCxXNsT3f
+Button: **Send my details** — submits the native form (was "fill out form"
+linking to Airtable).
+
+Copy amended: the original promised self-scheduling immediately after
+submitting ("you'll be able to schedule a consultation at a time that works
+best for you"). The native form has no scheduler, so this now reads that
+Megan will be in touch within 1–2 business days to arrange a time.
 
 ### Have a quick question?
 > I'm happy to help! Feel free to reach out here for simple questions or

@@ -123,7 +123,12 @@ Do:
 - Self-host both fonts as woff2 in the repo.
 - Build mobile first. The hero is where the layout breaks.
 - Write real alt text on every image.
-- Keep the Airtable consultation form link exactly as it is.
+- Style form fields with Poppins 400, cream fill, 1.5px line border, 16px
+  radius. The consultation form is native to the site (revision 2).
+
+**Superseded in revision 2:** the Airtable consultation form was replaced by
+a form on contact.html that emails Megan through a Cloudflare Worker and
+Resend. See worker/README.md.
 
 Don't:
 - Add colors, fonts, gradients, or drop shadows not in this document.

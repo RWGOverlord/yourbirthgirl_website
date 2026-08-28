@@ -1,0 +1,11 @@
+name = "ybg-consult-form"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+[vars]
+MAIL_TO = "megan.yourbirthgirl@gmail.com"
+MAIL_FROM = "Your Birth Girl <forms@yourbirthgirl.com>"
+ALLOWED_ORIGIN = "https://yourbirthgirl.com"
+
+# RESEND_API_KEY is a secret, never put it in this file. Set it with:
+#   npx wrangler secret put RESEND_API_KEY
