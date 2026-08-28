@@ -138,7 +138,6 @@ function buildEmail(d) {
       ${row('Heard via', d.heardFrom)}
       ${row('Medical-advice acknowledgement', 'Agreed')}
     </table>
-    <p style="margin:20px 0 0;font-size:13px;color:#3A2226">Reply directly to this email to reach ${esc(d.name)}.</p>
   </div>
 </div>`;
 
