@@ -5,7 +5,7 @@
   'use strict';
 
   // Set this to the deployed Worker URL. See worker/README.md.
-  var ENDPOINT = 'https://ybg-consult-form.rwgoverlord.workers.dev';
+  var ENDPOINT = 'https://ybg-consult-form.erick-1a8.workers.dev';
 
   var form = document.getElementById('consult-form');
   if (!form) return;

@@ -177,10 +177,16 @@ website → https://www.yourwholebaby.org/
 Button: **Send my details** — submits the native form (was "fill out form"
 linking to Airtable).
 
-Copy amended: the original promised self-scheduling immediately after
-submitting ("you'll be able to schedule a consultation at a time that works
-best for you"). The native form has no scheduler, so this now reads that
-Megan will be in touch within 1–2 business days to arrange a time.
+Copy reworded for clarity, not because anything was lost. The original
+("you'll be able to schedule a consultation at a time that works best for
+you") read as if you could pick a slot the moment you submitted. That was
+never the process: Megan reviews each form first, then sends a calendar link
+manually. She does not want anyone booking a time before she has seen the
+form. The new wording says she'll be in touch within 1–2 business days,
+which describes the actual flow.
+
+Keep this in mind before adding any self-serve scheduler — the manual review
+step is deliberate.
 
 ### Have a quick question?
 > I'm happy to help! Feel free to reach out here for simple questions or
