@@ -154,10 +154,27 @@ Submit the new sitemap while you are there.
 - Optionally set that site to Private under **Site Availability** — it is a
   duplicate of content now live on yourbirthgirl.com.
 - **Google Business Profile** is separate from all of this and unaffected.
-  Update its Website field to yourbirthgirl.com. **Rename the existing
-  listing — never delete and recreate it.** A new listing resets the review
-  count and local history, which is the real ranking asset and is not
-  recoverable. Same for the Facebook page.
+  **Rename the existing listing — never delete and recreate it.** A new listing
+  resets the review count and local history, which is the real ranking asset
+  and is not recoverable. Same for the Facebook page.
+
+  **It is currently unverified** (checked 2026-08-28): the profile shows
+  Google's "your edits will be visible after you're verified" banner, so no
+  edit publishes until verification completes. Its Website field is therefore
+  pinned to laquintanadoulacare.com, and its Social profiles field still points
+  at the old Instagram handle.
+
+  Two consequences:
+
+  1. **Start verification now, in parallel with the redirect.** It is not a
+     launch blocker but it is slow, and a service-area business with no public
+     address usually gets a slower path than a storefront.
+  2. **The redirect covers the gap.** Once the old domain 301s here, the stale
+     Website link still lands people on the new site — another reason to do the
+     redirect first rather than waiting on Google.
+
+  Once verified, edit in this order: Website URL, then the Instagram link, then
+  the business name. Name last.
 - Update the citations themselves where you can: DoulaMatch, DONA, Yelp, any
   Chattanooga birth-center or midwife referral pages. Redirects preserve those
   backlinks, but updating the source is better.
