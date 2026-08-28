@@ -38,8 +38,12 @@ npx wrangler secret put RESEND_API_KEY   # paste the key when prompted
 npx wrangler deploy
 ```
 
-Deploy prints the Worker URL, e.g.
-`https://ybg-consult-form.rwgoverlord.workers.dev`
+Deploy prints the Worker URL. The live one is:
+
+`https://ybg-consult-form.erick-1a8.workers.dev`
+
+The `erick-1a8` part is the Cloudflare account's workers.dev subdomain,
+which is set per account and is unrelated to the GitHub username.
 
 ### 4. Point the site at it
 
