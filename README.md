@@ -43,10 +43,11 @@ rewrite. The About page was removed on purpose.
 
 - [ ] **Photography** — hero portrait is a placeholder block in index.html.
       Drop real images into `assets/img/` and write real alt text.
-- [ ] **DNS** — point yourbirthgirl.com at GitHub Pages and enable
-      "Enforce HTTPS" in repository settings. See DNS.md.
-- [ ] **Mailbox** — megan@yourbirthgirl.com must actually exist before the
-      site goes live, or every contact link bounces.
+- [ ] **www subdomain** — add the `www` CNAME so www.yourbirthgirl.com
+      resolves. See DNS.md. The apex is already live over HTTPS.
+
+Contact email is megan.yourbirthgirl@gmail.com — a Gmail account, so the
+domain needs no MX records.
 
 ## Deploying
 

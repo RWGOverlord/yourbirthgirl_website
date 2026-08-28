@@ -12,7 +12,7 @@ Pages on the old site: `/home` `/services` `/resources` `/contact` `/about`
 
 - Doula: **Megan Quintanilla**, Birth Doula
 - Location: Chattanooga, TN
-- Email: megan@yourbirthgirl.com  (was LaQuintanaDoulaCare@gmail.com)
+- Email: megan.yourbirthgirl@gmail.com  (was LaQuintanaDoulaCare@gmail.com)
 - Phone: 707-267-4017
 - Instagram: https://www.instagram.com/yourbirthgirl/  (was @laquintanadoulacare)
 - Consultation form (Airtable, keep exactly):

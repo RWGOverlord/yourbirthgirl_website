@@ -63,12 +63,12 @@ Once GitHub shows the green "DNS check successful", go back to
 **Settings → Pages** and tick **Enforce HTTPS**. The certificate can take
 up to 24 hours to issue — the checkbox stays greyed out until it does.
 
-## 5. Mailbox
+## 5. Email
 
-`megan@yourbirthgirl.com` is used in the nav, footer, and both contact
-links. It needs MX records and an actual mailbox at the registrar or a mail
-host. This is separate from the Pages setup and does not affect the site
-build — but every contact link bounces until it exists.
+Contact links use `megan.yourbirthgirl@gmail.com`, an existing Gmail
+account. **No MX records are needed.** If a domain-based address is ever
+wanted instead, that would need MX records and a mail host — Pages does not
+handle email.
 
 ## Gotchas
 
