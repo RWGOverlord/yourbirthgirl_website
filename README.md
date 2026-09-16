@@ -8,11 +8,16 @@ Live domain: yourbirthgirl.com
 ## Stack
 
 Hand-written static HTML and CSS. No build step, no framework, no JavaScript.
-Open `index.html` in a browser, or serve the folder:
+To preview locally:
 
 ```sh
-python3 -m http.server 8000
+python3 serve.py          # http://localhost:8000
 ```
+
+Use `serve.py`, not `python3 -m http.server`. Internal links are extensionless
+(`/services`, not `/services.html`) to match the canonicals and the sitemap.
+GitHub Pages resolves those; the stdlib server does not, so plain `http.server`
+404s on every nav link. `serve.py` applies the same fallback Pages does.
 
 ## Layout
 
@@ -23,6 +28,7 @@ resources.html    Local + recommended resources
 contact.html      Airtable consultation form and quick-question email
 css/style.css     Entire design system (BRAND.md tokens)
 js/form.js        Consultation form validation + submit
+serve.py          Local preview server (GitHub Pages URL behaviour)
 worker/           Cloudflare Worker that relays the form to Resend
 assets/fonts/     Self-hosted woff2 (SIL OFL)
 assets/img/       Photography (pending)
