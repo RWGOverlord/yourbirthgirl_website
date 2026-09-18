@@ -280,3 +280,27 @@ time cannot be stated accurately or encoded in structured data, so Megan
 confirmed the towns she serves and the copy now names them: Chattanooga,
 Cleveland, Signal Mountain, East Ridge and Dayton TN, Dalton and LaFayette GA.
 The same towns are the `areaServed` in every page's JSON-LD. Keep them in sync.
+
+### 8.9 Footer wordmark is now the logo image
+
+The footer's Bagel text wordmark was replaced on all five pages with
+`assets/img/logo-wordmark.png`. `.footer__wordmark` is gone from the CSS;
+`.footer__logo` replaces it, at 120px on mobile and 135px from 760px up.
+The `alt` is "Your Birth Girl", so the text is still there for screen readers
+and crawlers.
+
+**The asset is dark-background only.** It was supplied as rust artwork on a
+baked-in `--wash` background, which showed as a pale tile on the ink footer.
+The background was keyed out to alpha, deriving per-pixel coverage from the
+blue channel — where wash and rust sit furthest apart — so the edges stay
+anti-aliased rather than jagged. The face and hair details inside the circle
+are background-coloured in the original, so they are now holes: on the footer
+they read as ink, which is the intended two-tone look. On a cream or wash
+background those details would disappear. Anything light needs a separate
+export.
+
+If the file is ever re-exported, **keep the alpha channel.** A flattened
+version brings the pale tile back. The master is
+`assets/img/logo-wordmark-source.png` (2000x2000, no alpha); the web asset is
+cropped to the artwork with an even margin and resized to 480px, which is
+still 3.6x at the displayed size.

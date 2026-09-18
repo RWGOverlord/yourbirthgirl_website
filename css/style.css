@@ -408,7 +408,16 @@ a:focus-visible, button:focus-visible {
 /* ----- Footer ----- */
 .footer { background: var(--ink); color: var(--cream); padding-block: 40px; }
 .footer__grid { display: grid; gap: 26px; }
-.footer__wordmark { font-family: var(--display); font-size: 20px; color: var(--cream); }
+/* The wordmark is now the logo image, rust artwork on transparency. The face
+   and hair cutouts are holes, so they take the footer's ink — that is the
+   intended two-tone read, not a rendering fault. Keep the alpha if it is ever
+   re-exported; a baked-in --wash background shows as a pale tile here. */
+.footer__logo {
+  display: block;
+  width: 120px;
+  max-width: 100%;
+  height: auto;
+}
 .footer__label {
   font-size: 11px;
   font-weight: 500;
@@ -457,7 +466,7 @@ a:focus-visible, button:focus-visible {
   .card__title { font-size: 17px; }
   .stat__number { font-size: 34px; }
   .price { font-size: 34px; }
-  .footer__wordmark { font-size: 24px; }
+  .footer__logo { width: 135px; }
 
   .hero__grid { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 48px; }
   .split { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 44px; }
