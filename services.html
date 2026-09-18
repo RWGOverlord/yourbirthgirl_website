@@ -30,7 +30,6 @@
         "alternateName": "La Quintana Doula Care",
         "description": "Birth doula support for holistic-minded parents in Chattanooga, TN. Continuous care from prenatal preparation through labor, birth, and postpartum recovery.",
         "url": "https://yourbirthgirl.com/",
-        "telephone": "+1-707-267-4017",
         "email": "megan.yourbirthgirl@gmail.com",
         "image": "https://yourbirthgirl.com/assets/img/megan.jpg",
         "logo": "https://yourbirthgirl.com/assets/img/logo.png",
@@ -130,7 +129,25 @@
         "knowsLanguage": "en-US",
         "sameAs": [
           "https://www.instagram.com/yourbirthgirl/"
-        ]
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Doula Support Packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@id": "https://yourbirthgirl.com/services#all-in"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@id": "https://yourbirthgirl.com/services#essentials"
+              }
+            }
+          ]
+        }
       },
       {
         "@type": "Person",
@@ -138,7 +155,8 @@
         "name": "Megan Quintanilla",
         "jobTitle": "Birth Doula",
         "image": "https://yourbirthgirl.com/assets/img/megan.jpg",
-        "url": "https://yourbirthgirl.com/",
+        "url": "https://yourbirthgirl.com/about",
+        "description": "I'm not a doula because I read about birth in a book. I'm a doula because I've lived it three very different ways.",
         "worksFor": {
           "@id": "https://yourbirthgirl.com/#business"
         },
@@ -158,10 +176,10 @@
       },
       {
         "@type": "Service",
-        "@id": "https://yourbirthgirl.com/services#birth-doula-support",
-        "name": "Birth Doula Support — Base Package",
+        "@id": "https://yourbirthgirl.com/services#all-in",
+        "name": "I'm All In, Girl!",
         "serviceType": "Birth doula support",
-        "description": "Continuous doula care through your entire journey, from prenatal prep to hands-on birth support and postpartum recovery. Includes 3 prenatal meetings, birth plan guidance, continuous labor and birth support, personalized comfort measures, text and email support, 1 postpartum check-in, and on-call availability from 36 weeks.",
+        "description": "The whole journey, from your first questions through the weeks after baby arrives. Three prenatal meetings to build your birth plan, continuous labor and birth support with comfort measures suited to your body, at home or in the hospital. Text and email support 8am-10pm throughout pregnancy, on-call from 38 weeks, and one postpartum visit after. Prayer and faith-centered encouragement.",
         "provider": {
           "@id": "https://yourbirthgirl.com/#business"
         },
@@ -255,10 +273,108 @@
         }
       },
       {
+        "@type": "Service",
+        "@id": "https://yourbirthgirl.com/services#essentials",
+        "name": "Just the Essentials",
+        "serviceType": "Birth doula support",
+        "description": "One prenatal meeting to build your birth plan, then the same labor and birth support included in the full package, along with a quick postpartum check-in.",
+        "provider": {
+          "@id": "https://yourbirthgirl.com/#business"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Chattanooga",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Chattanooga",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Cleveland",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Cleveland",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Signal Mountain",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Signal Mountain",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "East Ridge",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "East Ridge",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Dayton",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dayton",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Dalton",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dalton",
+              "addressRegion": "GA",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "LaFayette",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "LaFayette",
+              "addressRegion": "GA",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+              "@type": "GeoCoordinates",
+              "latitude": 35.0456,
+              "longitude": -85.3097
+            },
+            "geoRadius": "64000"
+          }
+        ],
+        "url": "https://yourbirthgirl.com/services",
+        "offers": {
+          "@type": "Offer",
+          "price": "900",
+          "priceCurrency": "USD",
+          "url": "https://yourbirthgirl.com/services"
+        }
+      },
+      {
         "@type": "WebPage",
         "@id": "https://yourbirthgirl.com/services#webpage",
         "url": "https://yourbirthgirl.com/services",
-        "name": "Chattanooga Doula Services & Pricing | Your Birth Girl",
+        "name": "Services | Your Birth Girl",
         "description": "Birth doula support in Chattanooga, TN. Continuous care from prenatal prep through birth and postpartum recovery.",
         "isPartOf": {
           "@id": "https://yourbirthgirl.com/#website"
@@ -271,7 +387,7 @@
           "@id": "https://yourbirthgirl.com/services#breadcrumb"
         },
         "mainEntity": {
-          "@id": "https://yourbirthgirl.com/services#birth-doula-support"
+          "@id": "https://yourbirthgirl.com/services#all-in"
         }
       },
       {
@@ -311,6 +427,7 @@
       <span>Your Birth Girl</span>
     </a>
     <nav class="nav__links" aria-label="Main">
+      <a class="nav__link" href="/about">About</a>
       <a class="nav__link" href="/services" aria-current="page">Services</a>
       <a class="nav__link" href="/resources">Resources</a>
       <a class="btn btn--nav" href="/contact">Contact</a>
@@ -326,32 +443,16 @@
     </div>
   </section>
 
+  <!-- Row 1 — text left, photo right. Portrait photo pairs with the long card. -->
   <section class="section section--cream">
-    <div class="shell split split--card">
+    <div class="shell split split--match">
       <article class="card">
-        <h2 class="card__title">Birth Doula Support</h2>
-        <p class="body-text">Continuous doula care through your entire journey, from prenatal prep to hands-on birth support and postpartum recovery. Together, we build confidence and peace for the birth you desire.</p>
-
-        <p class="eyebrow" style="margin-top:26px">Included:</p>
-        <ul class="included" style="margin-top:14px">
-          <li>3 prenatal meetings</li>
-          <li>Birth plan guidance</li>
-          <li>Continuous labor + birth support</li>
-          <li>Personalized comfort measures</li>
-          <li>Text/email support 8am&ndash;10pm throughout your pregnancy</li>
-          <li>1 postpartum check-in</li>
-          <li>On-call from 36 weeks</li>
-          <li>Prayer + faith-centered encouragement</li>
-          <li>Service area: Chattanooga and within ~45 minutes &mdash; Cleveland,
-              Dalton, Signal Mountain, East Ridge, Dayton and LaFayette</li>
-        </ul>
-
-        <p class="price" style="margin-top:26px">
-          $1200
-        </p>
-
+        <h2 class="card__title">I&rsquo;m All In, Girl!</h2>
+        <p class="body-text">The whole journey, from your first questions through the weeks after baby arrives. Three prenatal meetings to build your birth plan around what matters to you, then continuous labor and birth support with comfort measures suited to your body, at home or in the hospital. Text/email support 8am&ndash;10pm throughout pregnancy, on-call from 38 weeks, and one postpartum visit after. Prayer and faith-centered encouragement. Serving Chattanooga and about 45 minutes out: Cleveland, Dalton, Signal Mountain, East Ridge, Dayton, and LaFayette.</p>
+        <p class="price" style="margin-top:26px">$1200</p>
+        <p class="body-text" style="margin-top:14px">This one&rsquo;s for the mama who wants plenty of time to feel ready, to ask every question, calm every fear, and feel truly prepared before the big day.</p>
         <p style="margin-top:22px">
-          <a class="btn btn--primary" href="/contact">Contact Me</a>
+          <a class="btn btn--primary" href="/contact">Let&rsquo;s talk about your birth</a>
         </p>
       </article>
       <figure class="photo-frame photo-frame--tall">
@@ -361,13 +462,23 @@
     </div>
   </section>
 
+  <!-- Row 2 — photo left, text right on desktop. Card stays first in the DOM so
+       mobile still reads text before photo, matching every other .split. -->
   <section class="section section--wash">
-    <div class="shell stack">
-      <h2 class="section-header">Add Postpartum Meal Prep</h2>
-      <p class="body-text">Add Postpartum Meal Prep to your support package! For more details, contact me to book a free consultation.</p>
-      <div class="btn-row">
-        <a class="btn btn--primary" href="/contact">Contact Me</a>
-      </div>
+    <div class="shell split split--rev split--match">
+      <article class="card">
+        <h2 class="card__title">Just the Essentials</h2>
+        <p class="body-text">One prenatal meeting to build your birth plan, then the same labor and birth support included in the package above, along with a quick postpartum check-in.</p>
+        <p class="price" style="margin-top:26px">$900</p>
+        <p class="body-text" style="margin-top:14px">This one&rsquo;s for the mama who&rsquo;s done this before and trusts her body, or who just needs support to fit her budget.</p>
+        <p style="margin-top:22px">
+          <a class="btn btn--primary" href="/contact">Let&rsquo;s talk about your birth</a>
+        </p>
+      </article>
+      <figure class="photo-frame photo-frame--wide">
+        <img src="assets/img/newborn-in-hands.jpg" width="1337" height="891" loading="lazy"
+             alt="A newborn resting in an adult&rsquo;s hands, one hand cupped behind the head and another supporting the body.">
+      </figure>
     </div>
   </section>
 
@@ -384,15 +495,15 @@
         <p class="footer__label">Location</p>
         <ul>
           <li>Chattanooga, TN</li>
-          <li><a href="https://www.instagram.com/yourbirthgirl/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
       <div>
         <p class="footer__label">Contact</p>
         <ul>
           <li><a href="mailto:megan.yourbirthgirl@gmail.com">megan.yourbirthgirl@gmail.com</a></li>
-          <li><a href="tel:7072674017">707-267-4017</a></li>
+          <li><a href="https://www.instagram.com/yourbirthgirl/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
+        <p style="margin-top:14px"><a class="btn btn--primary" href="/contact">Contact Me</a></p>
       </div>
     </div>
     <p class="footer__bottom">&copy; 2026 Your Birth Girl &middot; Megan Quintanilla, Birth Doula &middot; Chattanooga, TN</p>

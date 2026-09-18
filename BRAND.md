@@ -154,7 +154,7 @@ Don't:
 
 ## 7. Rebrand notice (revision 3) — temporary
 
-A slim gold bar sits **above** the plum nav on all four pages:
+A slim gold bar sits **above** the plum nav on all five pages:
 
 > **La Quintana Doula Care is now Your Birth Girl** — same Megan, same care.
 
@@ -178,6 +178,105 @@ Rules for it:
   on, or the first wave of redirected traffic lands unexplained.
 
 **Remove it** once the redirect has run about twelve months: delete the
-`.rebrand` block in `css/style.css`, the markup on all four pages, and this
+`.rebrand` block in `css/style.css`, the markup on all five pages, and this
 section. The `formerly La Quintana Doula Care` line in the footer is the
 permanent, quiet version and stays.
+
+---
+
+## 8. September 2026 rewrite (revision 4)
+
+Megan wrote new copy for most of the site and asked for an About page. This
+section records every deliberate departure from the rules above so none of it
+is mistaken for drift. Everything here was requested by her and applied
+verbatim; the wording is hers, not the build's.
+
+### 8.1 New page: /about
+
+`/about` is a real page as of 2026-09-17. It replaced the redirect stub that
+bounced old Squarespace `/about` traffic to the homepage, so that traffic now
+lands on the page it asked for. The `/home` stub is unaffected and stays.
+
+- **§4 breach.** The spec fixes the nav as Wordmark, Services, Resources,
+  Contact and says the About section is removed. The nav is now Wordmark,
+  About, Services, Resources, Contact. No CSS was needed: `.nav__links`
+  already wraps and drops to its own row below 600px.
+- **Portrait is a placeholder.** It reuses `assets/img/megan.jpg` from the
+  home hero so the page reads as finished. Swap the `src` and alt text in the
+  hero `<figure>` when Megan's own photo lands. `.photo-frame--placeholder`
+  in `css/style.css` is the alternative if it ever has to ship with none.
+
+### 8.2 §5 "keep her existing copy" — superseded on four pages
+
+§5 was written for the Squarespace port, when the job was a reskin. It no
+longer applies to the pages below: this is Megan's own new copy, written in
+September 2026, reproduced word for word.
+
+| Page | What changed |
+|---|---|
+| About | Entire page. 369 words, her order, her "Why I became a doula" heading |
+| Home | Hero headline and lead, provides header, services tagline, closing CTA |
+| Contact | Both headers and both body paragraphs |
+| Resources | Header and intro paragraph |
+| Services | Both package descriptions, prices and "this one's for" lines |
+
+The only text on these pages she did not write is eyebrow labels and button
+text, which reuse strings already on the site.
+
+### 8.3 Component rules deliberately not applied
+
+- **§3 pill rule.** "In any pill list: exactly one rust-filled and one
+  gold-filled. Never more." The homepage provides list is now eight uniform
+  pills at Megan's request. On cream they are defined only by their `--line`
+  hairline. There is a comment in `index.html` so nobody restores the
+  highlights as a fix.
+- **§2 Bagel rule.** "Never a sentence. Max ~6 words." Two headlines now
+  break this: the home hero (two sentences, 13 words, wrapping to about three
+  lines) and the resources header. Reviewed and kept at full size.
+- **§3 turn word.** "The final word may switch from plum to rust." The home
+  hero now puts the whole second sentence in rust, not one word. Rust is
+  legal here only because the hero is 47px/30px, above the 24px floor in §1.
+- **§4 section order.** A plum consultation CTA was added between the
+  provides list and the evidence stats. It is the page's second plum band.
+
+### 8.4 Type scale change
+
+Eyebrow labels went from 11px/11.5px to 12px/13px site-wide — uppercase at
+.2em tracking was hard to read at 11px. This is a change to the §2 table, not
+an exception to it. It affects all five pages.
+
+### 8.5 New layout CSS
+
+`.split--rev` mirrors `.split` so the photo takes the left column on desktop,
+while the card stays first in the DOM and mobile still reads text before
+photo. `.split--match` stretches a photo frame to the height of the card
+beside it and lets `object-fit: cover` crop the overflow, so the two line up
+exactly. Both are layout only — no new colors, fonts or sizes.
+
+### 8.6 Services: two packages
+
+The single package and its checklist were replaced with "I'm All In, Girl!"
+($1200) and "Just the Essentials" ($900), laid out as two alternating rows.
+**On-call moved from 36 to 38 weeks** — confirmed intentional by Megan,
+2026-09-17. The "Add Postpartum Meal Prep" section was deleted; she no longer
+offers it. Its copy survives in CONTENT.md as the old-site archive only.
+
+### 8.7 Phone number removed
+
+Megan's number is gone from the footer of all five pages **and** from the
+`telephone` field in every page's structured data. She was getting spam calls.
+Email and Instagram are the contact methods; the footer carries a Contact Me
+button to `/contact`.
+
+Two things this does not cover: her Google Business Profile and the Facebook
+page almost certainly still list the number, and the GBP is the likelier spam
+source. See REDIRECT.md §7 — the profile is unverified, so it may need
+verification before it can be edited.
+
+### 8.8 Service area wording (2026-09-15)
+
+The services page read "Service area: within 1 hour of Chattanooga, TN". Drive
+time cannot be stated accurately or encoded in structured data, so Megan
+confirmed the towns she serves and the copy now names them: Chattanooga,
+Cleveland, Signal Mountain, East Ridge and Dayton TN, Dalton and LaFayette GA.
+The same towns are the `areaServed` in every page's JSON-LD. Keep them in sync.

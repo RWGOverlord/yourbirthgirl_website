@@ -3,21 +3,305 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Redirect stub. The old Squarespace site had /about; this site does not.
-     Squarespace domain forwarding preserves the path, so traffic lands here.
-     Zero-delay refresh plus a canonical is the closest a static host gets to
-     a 301. Remove alongside the rebrand notice — see BRAND.md §7. -->
-<meta http-equiv="refresh" content="0; url=/">
-<link rel="canonical" href="https://yourbirthgirl.com/">
-<title>Your Birth Girl | Chattanooga Doula</title>
+<title>Meet Megan, Chattanooga Birth Doula | Your Birth Girl</title>
+<meta name="description" content="Megan Quintanilla&rsquo;s story &mdash; three very different births, and why she became a birth doula in Chattanooga, TN.">
+<link rel="canonical" href="https://yourbirthgirl.com/about">
+<link rel="preload" href="assets/fonts/bagel-fat-one-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#5C2D3E">
 <link rel="stylesheet" href="css/style.css">
+<!-- Structured data (JSON-LD) — service-area business, no street address.
+     The business and Person nodes are repeated on every page by design so each
+     page is self-describing when crawled alone. Keep name, phone and email in
+     sync with the footer and the Google Business Profile. -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://yourbirthgirl.com/#business",
+        "name": "Your Birth Girl",
+        "alternateName": "La Quintana Doula Care",
+        "description": "Birth doula support for holistic-minded parents in Chattanooga, TN. Continuous care from prenatal preparation through labor, birth, and postpartum recovery.",
+        "url": "https://yourbirthgirl.com/",
+        "email": "megan.yourbirthgirl@gmail.com",
+        "image": "https://yourbirthgirl.com/assets/img/megan.jpg",
+        "logo": "https://yourbirthgirl.com/assets/img/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chattanooga",
+          "addressRegion": "TN",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Chattanooga",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Chattanooga",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Cleveland",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Cleveland",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Signal Mountain",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Signal Mountain",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "East Ridge",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "East Ridge",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Dayton",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dayton",
+              "addressRegion": "TN",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Dalton",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dalton",
+              "addressRegion": "GA",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "LaFayette",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "LaFayette",
+              "addressRegion": "GA",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+              "@type": "GeoCoordinates",
+              "latitude": 35.0456,
+              "longitude": -85.3097
+            },
+            "geoRadius": "64000"
+          }
+        ],
+        "founder": {
+          "@id": "https://yourbirthgirl.com/#megan"
+        },
+        "employee": {
+          "@id": "https://yourbirthgirl.com/#megan"
+        },
+        "knowsLanguage": "en-US",
+        "sameAs": [
+          "https://www.instagram.com/yourbirthgirl/"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://yourbirthgirl.com/#megan",
+        "name": "Megan Quintanilla",
+        "jobTitle": "Birth Doula",
+        "image": "https://yourbirthgirl.com/assets/img/megan.jpg",
+        "url": "https://yourbirthgirl.com/about",
+        "description": "I'm not a doula because I read about birth in a book. I'm a doula because I've lived it three very different ways.",
+        "worksFor": {
+          "@id": "https://yourbirthgirl.com/#business"
+        },
+        "sameAs": [
+          "https://www.instagram.com/yourbirthgirl/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://yourbirthgirl.com/#website",
+        "url": "https://yourbirthgirl.com/",
+        "name": "Your Birth Girl",
+        "publisher": {
+          "@id": "https://yourbirthgirl.com/#business"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "AboutPage",
+        "@id": "https://yourbirthgirl.com/about#webpage",
+        "url": "https://yourbirthgirl.com/about",
+        "name": "Meet Megan, Chattanooga Birth Doula | Your Birth Girl",
+        "description": "Megan Quintanilla's story — three very different births, and why she became a birth doula in Chattanooga, TN.",
+        "isPartOf": {
+          "@id": "https://yourbirthgirl.com/#website"
+        },
+        "about": {
+          "@id": "https://yourbirthgirl.com/#business"
+        },
+        "inLanguage": "en-US",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://yourbirthgirl.com/assets/img/megan.jpg"
+        },
+        "breadcrumb": {
+          "@id": "https://yourbirthgirl.com/about#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://yourbirthgirl.com/#megan"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://yourbirthgirl.com/about#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://yourbirthgirl.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About"
+          }
+        ]
+      }
+    ]
+  }
+</script>
 </head>
 <body>
-<main id="main" class="section section--cream">
-  <div class="shell stack">
-    <p class="body-text">This page has moved.
-      <a href="/">Continue to Your Birth Girl</a>.</p>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Rebrand notice — temporary, see BRAND.md §7 -->
+<div class="rebrand">
+  <p class="shell rebrand__text"><strong>La Quintana Doula Care is now Your Birth Girl</strong> &mdash; same Megan, same care.</p>
+</div>
+
+<header class="nav">
+  <div class="shell nav__inner">
+    <a class="wordmark" href="/">
+      <img class="wordmark__mark" src="assets/img/logo-badge.png" width="38" height="38" alt="">
+      <span>Your Birth Girl</span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a class="nav__link" href="/about" aria-current="page">About</a>
+      <a class="nav__link" href="/services">Services</a>
+      <a class="nav__link" href="/resources">Resources</a>
+      <a class="btn btn--nav" href="/contact">Contact</a>
+    </nav>
   </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="shell hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">Megan Quintanilla &middot; Birth Doula</p>
+        <h1 class="hero__standout">Hi, I&rsquo;m <span class="turn">Megan!</span></h1>
+        <p class="hero__lead">Your Chattanooga birth doula.</p>
+      </div>
+      <!-- Swap for Megan's new portrait when it lands; keep width/height and alt. -->
+      <figure class="photo-frame">
+        <img src="assets/img/megan.jpg" width="1200" height="1600" fetchpriority="high"
+             alt="Megan Quintanilla smiling outdoors, with long auburn hair and a black tank top, trees and grass blurred behind her.">
+      </figure>
+    </div>
+  </section>
+
+  <!-- Her story, in her own words -->
+  <section class="section section--cream">
+    <div class="shell stack">
+      <h2 class="visually-hidden">My story</h2>
+      <p class="body-text">I&rsquo;m not a doula because I read about birth in a book. I&rsquo;m a doula because I&rsquo;ve lived it three very different ways. I know firsthand what it feels like to have the wrong support during labor, and what it feels like to have the right support.</p>
+      <p class="body-text">My first birth was traumatic. It happened in the hospital, and my baby ended up in the NICU. I didn&rsquo;t have the labor and postpartum support I needed, and I felt every bit of that absence.</p>
+      <p class="body-text">My second birth was the opposite in almost every way. It was fast, so fast that my midwives didn&rsquo;t even make it in time, and I ended up having an accidental freebirth at home. It was intense, but it was also incredible, and it deepened my faith in a way nothing else has. That birth showed me what my body, and God&rsquo;s design, was actually capable of when fear wasn&rsquo;t running the show.</p>
+      <p class="body-text">In the days after, I couldn&rsquo;t stop thinking about it. I prayed a lot about what I&rsquo;d just experienced, and by the end of it, I knew: God was calling me to be a birth doula. I wanted other mamas to feel what I felt.</p>
+      <p class="body-text">My third baby was breech, and I had her at home too, no complications, just steady, calm support the whole way through labor and postpartum. Birth doesn&rsquo;t have to be something that happens to you. With the right support, it can be something you go through, held, prepared, and at peace.</p>
+    </div>
+  </section>
+
+  <!-- Why I became a doula -->
+  <section class="section section--wash">
+    <div class="shell stack">
+      <h2 class="section-header">Why I became a doula</h2>
+      <p class="body-text">Those three births are why Your Birth Girl exists. I know what it&rsquo;s like to walk away from a birth carrying trauma. I also know what it&rsquo;s like to walk away feeling strong, trusted, and completely supported, and to feel called toward something because of it. I became a birth doula so more mamas in Chattanooga get the second version.</p>
+      <p class="body-text">I believe God designed women&rsquo;s bodies for birth. Whether your journey looks like laboring at home or walking into the hospital with a plan and a doula who won&rsquo;t leave your side, you deserve someone who believes in your birth as much as you do.</p>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="section section--plum">
+    <div class="shell stack">
+      <h2 class="section-header">Contact Me</h2>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/contact">Let&rsquo;s talk about your birth</a>
+        <a class="btn btn--secondary" href="/services">My Services</a>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__wordmark">Your Birth Girl</p>
+        <p class="footer__former">formerly La Quintana Doula Care</p>
+      </div>
+      <div>
+        <p class="footer__label">Location</p>
+        <ul>
+          <li>Chattanooga, TN</li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__label">Contact</p>
+        <ul>
+          <li><a href="mailto:megan.yourbirthgirl@gmail.com">megan.yourbirthgirl@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/yourbirthgirl/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+        <p style="margin-top:14px"><a class="btn btn--primary" href="/contact">Contact Me</a></p>
+      </div>
+    </div>
+    <p class="footer__bottom">&copy; 2026 Your Birth Girl &middot; Megan Quintanilla, Birth Doula &middot; Chattanooga, TN</p>
+  </div>
+</footer>
+
 </body>
 </html>

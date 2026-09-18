@@ -23,6 +23,7 @@ GitHub Pages resolves those; the stdlib server does not, so plain `http.server`
 
 ```
 index.html        Home — hero, doulas provide, evidence, services, contact
+about.html        About Megan — her story, in her own words
 services.html     Birth Doula Support package and add-on
 resources.html    Local + recommended resources
 contact.html      Airtable consultation form and quick-question email
@@ -32,7 +33,6 @@ serve.py          Local preview server (GitHub Pages URL behaviour)
 worker/           Cloudflare Worker that relays the form to Resend
 assets/fonts/     Self-hosted woff2 (SIL OFL)
 assets/img/       Photography (pending)
-about.html        Redirect stub — old Squarespace /about, now gone
 home.html         Redirect stub — old Squarespace /home
 sitemap.xml       Submitted to Search Console; excludes redirect stubs
 robots.txt        Points crawlers at the sitemap
@@ -62,7 +62,7 @@ rewrite. The About page was removed on purpose.
       until it is deployed and `ENDPOINT` in `js/form.js` matches the
       deployed URL. Requires verifying yourbirthgirl.com in Resend. Full
       steps in worker/README.md.
-- [ ] **Remove the rebrand notice** — the gold bar above the nav on all four
+- [ ] **Remove the rebrand notice** — the gold bar above the nav on all five
       pages is temporary. Delete it, its `.rebrand` CSS, and BRAND.md §7 once
       the laquintanadoulacare.com redirect has run ~12 months. The footer
       "formerly" line stays.
